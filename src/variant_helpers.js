@@ -1,11 +1,19 @@
 
 import { ErrorState } from "./static_Components"
+import React, { useState, useEffect } from "react"
+import PropTypes from 'prop-types';
 
+
+VariantController.propTypes = {
+    instance: PropTypes.object.isRequired,
+    variant: PropTypes.string.isRequired,
+    fixedID: PropTypes.string.isRequired,
+};
 export function VariantController({ instance, variant, fixedID }) {
     let _elem
     let variants = {}
 
-    _elem = findNestedPropertyControls(instance)
+    _elem = FindNestedPropertyControls(instance)
     // Ensure _elem is valid before proceeding
     if (!_elem)
         return (
@@ -37,7 +45,7 @@ export function VariantController({ instance, variant, fixedID }) {
         variant: variantState,
         tabIndex: -1, // Use the state that holds the current variant
         style: {
-            ...element.props.style, // Safely spread original style props
+            ..._elem.props.style, // Safely spread original style props
             width: "100%",
         },
     })
@@ -65,7 +73,7 @@ export function FindNestedPropertyControls(obj) {
     }
 
     // Continue the search recursively with 'props.children' if it exists.
-    return obj.props ? findNestedPropertyControls(obj.props) : null
+    return obj.props ? FindNestedPropertyControls(obj.props) : null
 }
 /**
  * Extracts variant mappings from an object's property controls.

@@ -1,3 +1,4 @@
+import React from "react"
 const ErrorStyles = {
     backgroundColor: "#edf2ff",
     border: "1px solid #5c7cfa",
