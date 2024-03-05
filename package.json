@@ -1,5 +1,5 @@
 {
-  "name": "@prefabs/framer-utils",
+  "name": "framer-prefabs-utils",
   "version": "0.0.1",
   "description": "A collection of functions, properties,components and helpers when building your framer coded components.",
   "main": "src/index.js",
